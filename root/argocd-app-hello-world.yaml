@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: argocd-meetup-hello-world
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -13,6 +15,8 @@ spec:
     server: https://kubernetes.default.svc
     namespace: meetup
   syncPolicy:
+    syncOptions:
+    - PrunePropagationPolicy=foreground
     automated:
       prune: true
       selfHeal: true
