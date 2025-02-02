@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: pmuszynski/argocd-meetup-myapp:
+        image: pmuszynski/argocd-meetup-myapp:ddba029
         ports:
         - containerPort: 80
