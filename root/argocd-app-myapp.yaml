@@ -14,5 +14,5 @@ spec:
     namespace: meetup
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
