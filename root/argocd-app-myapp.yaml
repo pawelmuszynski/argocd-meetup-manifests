@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-meetup-myapp
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pawelmuszynski/argocd-meetup-manifests.git
+    targetRevision: master
+    path: myapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: meetup
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
